@@ -1,0 +1,17 @@
+__background__	0
+joghurt	1
+ketchup	2
+gerkin	3
+orange	4
+pepper	5
+onion	6
+avocado	7
+eggBox	8
+champagne	9
+orangeJuice	10
+tomato	11
+mustard	12
+butter	13
+water	14
+milk	15
+tabasco	16
