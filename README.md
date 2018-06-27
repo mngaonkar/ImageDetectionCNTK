@@ -24,7 +24,10 @@ az storage blob upload-batch --destination data --source Grocery/
 ```
 az batchai job create -g mahadev-ml -w mahadev-cntk -e cntk-experiment -n cntk-job-new -c cntk-cluster -f job.json 
 ```
-
+## List running job
+```
+az batchai job list -g mahadev-ml  -e cntk-experiment -w mahadev-cntk
+```
 ## Steam log from training job
 ```
 az batchai job file stream --file-name stderr.txt -g mahadev-ml -w mahadev-cntk -e cntk-experiment -j cntk-job-new
