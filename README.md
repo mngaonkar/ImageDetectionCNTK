@@ -7,6 +7,10 @@ The objective is to use CNTK to detect custom objects in a given image. The mode
 ```
 az batchai cluster create -g mahadev-ml -w mahadev-cntk -n cntk-cluster -i UbuntuDSVM -s Standard_D11 --vm-priority lowpriority --min 0 --max 1
 ```
+## List running cluster
+```
+az batchai cluster list -g mahadev-ml -w mahadev-cntk
+```
 ## Upload training script
 Before you start uploading to Azure file share or blob, export following environment variables.
 ```
