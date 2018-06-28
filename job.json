@@ -4,7 +4,7 @@
         "nodeCount": 1,
         "cntkSettings": {
             "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/detection/DetectionDemo.py",
-            "commandLineArgs": "$AZ_BATCHAI_JOB_MOUNT_ROOT/data/Grocery $AZ_BATCHAI_OUTPUT_MODEL"
+            "commandLineArgs": "$AZ_BATCHAI_JOB_MOUNT_ROOT/data/Steer_Bad_Relevant_output $AZ_BATCHAI_OUTPUT_MODEL"
         },
         "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs/detection",
         "outputDirectories": [{

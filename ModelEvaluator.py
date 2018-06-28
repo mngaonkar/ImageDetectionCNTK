@@ -26,11 +26,12 @@ def get_configuration(detector_name):
 def evaluate_model(eval_model, detector_name):
     cfg = get_configuration(detector_name)
     cfg['NUM_CHANNELS'] = 3
-    cfg["DATA"].CLASSES = parse_class_map_file(os.path.join("Grocery", cfg["DATA"].CLASS_MAP_FILE))
+    print("Map file = ", cfg["DATA"].CLASS_MAP_FILE)
+    cfg["DATA"].CLASSES = parse_class_map_file(os.path.join("Steer_Bad_Relevant_output", cfg["DATA"].CLASS_MAP_FILE))
     cfg["DATA"].NUM_CLASSES = len(cfg["DATA"].CLASSES)
 
       # detect objects in single image
-    img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), r"Grocery/testImages/WIN_20160803_11_28_42_Pro.jpg")
+    img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), r"Steer_Bad_Relevant_output/testImages/Steer_Bad_Front_Zoom (269).jpg")
     regressed_rois, cls_probs = od.evaluate_single_image(eval_model, img_path, cfg)
     bboxes, labels, scores = od.filter_results(regressed_rois, cls_probs, cfg)
 
@@ -39,6 +40,7 @@ def evaluate_model(eval_model, detector_name):
     for i in fg_boxes[0]: print("{:<12} (label: {:<2}), score: {:.3f}, box: {}".format(
                                 cfg["DATA"].CLASSES[labels[i]], labels[i], scores[i], [int(v) for v in bboxes[i]]))
 
+    od.visualize_results(img_path, bboxes, labels, scores, cfg, store_to_path="Steer_Bad_Relevant_output/output.jpg")
 
 if __name__ == '__main__':
     eval_model = load_model("FasterRCNN/Output/faster_rcnn_eval_AlexNet_4stage.model")
